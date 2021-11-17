@@ -1,0 +1,180 @@
+
+
+
+//Navbar
+nav
+    position: relative
+    //z-index: 10
+    width: 100%
+    height: 100px
+    padding: 0 min(32px, 5em)
+    align-items: center
+    background: $grey-01
+    transition: all 200ms ease-in-out
+    .brand
+        color: $secondary-blue
+        flex: 1
+        display: flex
+        align-items: center
+        .brand-logo
+            height: 64px
+            margin-right: 16px
+            transition: all 200ms ease-in-out
+        .brand-name
+            width: min(256px, 85%)
+            font-family: 'Mulish', sans-serif
+            font-weight: 900
+            font-size: max(16px, 1.6em)
+            line-height: 1.2
+            transition: all 200ms ease-in-out
+    .nav-pagelinks
+        flex: 1
+        padding-left: 0
+        align-self: center
+        display: flex
+        justify-content: center
+        list-style-type: none
+        a
+            @extend .body-02
+            display: inline-block
+            padding: 08px 16px
+            text-decoration: none
+            color: $grey-07
+            transition: all 200ms ease-in-out
+            &:hover
+                color: $grey-09
+
+    .nav-button
+        flex: 1
+        display: flex
+        justify-content: end
+    .hamburger
+        padding: 16px 0 16px 24px
+        cursor: pointer
+        span
+            display: block
+            width: 24px
+            height: 2px
+            background: $secondary-blue
+            transition: all 200ms ease-in-out
+            &:not(:last-child)
+                margin-bottom: 9px
+    .hide-on-mobile
+        @media screen and (max-width: 1024px)
+            display: none
+
+
+.menu-overlay
+    position: fixed
+    top: 100px
+    right: 0
+    left: 0
+    bottom: 0
+    background: transparentize($grey-02, 0.8)
+    visibility: hidden
+    opacity: 0
+    transition: all 200ms ease-in-out
+.menu-open
+    .hamburger
+        > span:first-child
+            transform: rotate(45deg)
+            transform-origin: -2px 3px
+        > span:nth-child(2)
+            opacity: 0
+        > span:last-child
+            transform-origin: -3px -1px
+            transform: rotate(-45deg)
+    .menu-overlay
+        opacity: 1
+        visibility: visible
+
+html:not([data-scroll="0"]) 
+    header
+        margin-top: 80px
+html:not([data-scroll="0"]) 
+    .menu-nav
+        background: $white-01
+html:not([data-scroll="0"]) 
+    nav
+        position: fixed
+        z-index: 1
+        top: 0
+        height: 80px
+        background: $white-01
+        box-shadow: 0 0 2px 2px $grey-02
+        .brand
+            .brand-logo
+                height: 48px
+                margin-right: 32px
+            .brand-name
+                opacity: 0
+        .btn-md
+            @extend .btn-sm
+        .menu-overlay
+            top: 80px
+
+.menu-nav
+    background: $white-02
+    width: 100%
+    padding: min(80px, 16em) 0
+    position: fixed
+    z-index: 10
+    opacity: 0
+    visibility: hidden
+    transform: translateY(-15px)
+    transition: all 150ms ease-in-out
+    .nav-menu-link
+        @extend .sub-heading-02
+        color: $grey-07
+        display: block
+        text-align: center
+        padding: min(16px, 5em)
+        margin: min(8px, 2.5em) auto
+        opacity: 0
+        transition: all 300ms ease-in-out
+.fade-in
+    opacity: 1
+    visibility: visible
+    transform: translateY(0px)
+    > .nav-menu-link
+        opacity: 1
+
+
+.hide-on-desktop
+    @media screen and (min-width: 1024px)
+        display: none
+.hide-on-mobile
+    @media screen and (max-width: 1024px)
+        display: none
+
+footer
+    padding: min(64px, 16em) min(32px, 5em)
+    background: $primary-green
+    color: $secondary-green
+    .footer-content
+        margin-bottom: min(32px, 5em)
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(312px, 1fr))
+        grid-gap: 24px
+        .brand-content-details
+            width: min(90%, 312px)
+            margin: 24px 0 32px
+            color: $white-01
+    .footer-links
+        .footer-link
+            padding: 0 8px 8px 0
+            display: block
+            color: inherit
+            text-align: center
+        @media screen and (min-width: 700px)
+            display: flex  
+            justify-content: end
+            .footer-link
+                &:not(:last-child)  
+                    margin-right: 16px
+    .developer-credit
+        margin-top: min(64px, 16em)
+        display: flex
+        .link
+            color: $white-01
+            margin-left: 8px
